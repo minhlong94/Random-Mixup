@@ -1,13 +1,14 @@
-# Official PyTorch implementation of R-Mix and RL-Mix
+# R-Mix and RL-Mix: expeditious Random Mix-up
 
 This is the official code release for the paper ["Expeditious Saliency-based Mixup through Random
-Gradient Thresholding"](), accepted at [2nd International Workshop on Practical
+Gradient Thresholding"](https://practical-dl.github.io/2023/long_paper/07.pdf), accepted at [2nd International Workshop on Practical
 Deep Learning in the Wild (Practical-DL)](https://practical-dl.github.io/#paper-submission) at AAAI Conference on Artificial Intelligence 2023.
 
 ![](assets/mixup%20vis%20final.png)
 
-R-Mix aims to combine randomization through saliency-guided training of mix-up, which has shown to have a large improvement for CutMix.
-R-Mix eliminates complex saliency optimization process by replacing it with a random procedure, which cuts down 1/3 of the training time.
+by Minh-Long Luu, Zeyi Huang, Eric P. Xing, Yong Jae Lee, and Haohan Wang.
+
+Our work, R-Mix, combines randomization through saliency-guided training of mix-up, which has shown to have a large improvement over CutMix and cuts down training time.
 
 ## Requirements
 
