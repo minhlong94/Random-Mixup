@@ -4,9 +4,9 @@ This is the official code release for the paper ["Expeditious Saliency-based Mix
 Gradient Thresholding"](), accepted at [2nd International Workshop on Practical
 Deep Learning in the Wild (Practical-DL)](https://practical-dl.github.io/#paper-submission) at AAAI Conference on Artificial Intelligence 2023.
 
-![](.\assets\mixup vis final.png)
-R-Mix aims to combine randomization through saliency-guided training of mix-up, which has shown to have a large improvement for CutMix.
+![](./assets/mixup vis final.png)
 
+R-Mix aims to combine randomization through saliency-guided training of mix-up, which has shown to have a large improvement for CutMix.
 R-Mix eliminates complex saliency optimization process by replacing it with a random procedure, which cuts down 1/3 of the training time.
 
 ## Requirements
