@@ -160,17 +160,6 @@ class VanillaMixupPatchDiscrete(gym.Env):
                         self.episode_counter,
                         self.vis_flag,
                     )
-                    # mixed_inputs, mixed_targets = mix_topleast_choose_least(
-                    #     inputs,
-                    #     targets,
-                    #     self.mixup_saliency,
-                    #     top_k_patch,
-                    #     self.args,
-                    #     self.config,
-                    #     self.config["size"] // self.mixup_saliency.shape[-1],
-                    #     self.episode_counter,
-                    #     self.vis_flag,
-                    # )
                 else:
                     mixed_inputs, mixed_targets = mix_topleast_choose_top(
                         inputs,
@@ -189,10 +178,6 @@ class VanillaMixupPatchDiscrete(gym.Env):
             ), Variable(mixed_targets)
             outputs = self.model(mixed_inputs.float())
 
-            # self.label_tensor.append(mixed_targets)
-
-            # softmax_output = nn.Softmax(dim=1).cuda()(outputs)
-            # loss = self.BCELoss_model(softmax_output, mixed_targets)
             loss = torch.mean(
                 torch.sum(-mixed_targets * nn.LogSoftmax(-1)(outputs), dim=1)
             )
@@ -231,79 +216,6 @@ class VanillaMixupPatchDiscrete(gym.Env):
                 outputs = self.model(mixed_inputs)
                 loss = criterion(outputs, targets)
 
-        # elif self.args.method == "inputcut":
-        #     prob = np.random.rand(1)
-        #     if prob <= 0.5:
-        #         # generate mixed sample
-        #         criterion = torch.nn.CrossEntropyLoss().cuda()
-        #         lam = np.random.beta(self.args.dirichlet_alpha, self.args.dirichlet_alpha)
-        #         rand_index = torch.randperm(inputs.size()[0]).cuda()
-        #         target_a = targets
-        #         target_b = targets[rand_index]
-        #         bbx1, bby1, bbx2, bby2 = rand_bbox(inputs.size(), lam)
-        #         inputs[:, :, bbx1:bbx2, bby1:bby2] = inputs[rand_index, :, bbx1:bbx2, bby1:bby2]
-        #         # adjust lambda to exactly match pixel ratio
-        #         lam = 1 - ((bbx2 - bbx1) * (bby2 - bby1) / (inputs.size()[-1] * inputs.size()[-2]))
-        #         # compute output
-        #         mixed_inputs = Variable(inputs, requires_grad=True)
-        #         outputs = self.model(mixed_inputs)
-        #         loss = criterion(outputs, target_a) * lam + criterion(outputs, target_b) * (1. - lam)
-        #     else:
-        #         inputs, targets_a, targets_b, lam = mixup_data(inputs, targets,
-        #                                                        self.args.dirichlet_alpha, True)
-        #         targets_a, targets_b = map(Variable, (targets_a, targets_b))
-        #         mixed_inputs = Variable(inputs, requires_grad=True)
-        #         outputs = self.model(mixed_inputs)
-        #         criterion = torch.nn.CrossEntropyLoss().cuda()
-        #         loss = mixup_criterion(criterion, outputs, targets_a, targets_b, lam)
-
-        # elif self.args.method == "cutpaste":
-        #     mixed_inputs, mixed_targets = cut_top_and_paste(
-        #         inputs,
-        #         targets,
-        #         self.mixup_saliency,
-        #         top_k_patch,
-        #         self.args,
-        #         self.config,
-        #         self.config["size"] // self.mixup_saliency.shape[-1],
-        #         self.episode_counter,
-        #         self.vis_flag,
-        #     )
-        #     # Train the model
-        #     mixed_inputs, mixed_targets = Variable(
-        #         mixed_inputs, requires_grad=True
-        #     ), Variable(mixed_targets)
-        #     outputs = self.model(mixed_inputs.float())
-        #
-        #     softmax_output = nn.Softmax(dim=1).cuda()(outputs)
-        #     # loss = self.BCELoss_model(softmax_output, mixed_targets)
-        #     loss = torch.mean(
-        #         torch.sum(-mixed_targets * nn.LogSoftmax(-1)(outputs), dim=1)
-        #     )
-        #
-        # elif self.args.method == "cuttopleast":
-        #     mixed_inputs, mixed_targets = cut_topleast_and_paste(
-        #         inputs,
-        #         targets,
-        #         self.mixup_saliency,
-        #         top_k_patch,
-        #         self.args,
-        #         self.config,
-        #         self.config["size"] // self.mixup_saliency.shape[-1],
-        #         self.episode_counter,
-        #         self.vis_flag,
-        #     )
-        #     # Train the model
-        #     mixed_inputs, mixed_targets = Variable(
-        #         mixed_inputs, requires_grad=True
-        #     ), Variable(mixed_targets)
-        #     outputs = self.model(mixed_inputs.float())
-        #
-        #     softmax_output = nn.Softmax(dim=1).cuda()(outputs)
-        #     # loss = self.BCELoss_model(softmax_output, mixed_targets)
-        #     loss = torch.mean(
-        #         torch.sum(-mixed_targets * nn.LogSoftmax(-1)(outputs), dim=1)
-        #     )
 
         elif method == "vanilla":
             mixed_inputs = Variable(inputs, requires_grad=True)
