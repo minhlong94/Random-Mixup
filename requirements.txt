@@ -10,7 +10,7 @@ tensorboard~=2.5.0
 scipy
 pillow
 torchattacks~=3.0.0
-torchmetrics~=0.5
+torchmetrics
 easydict
 vit-pytorch~=0.26.7
 timm
