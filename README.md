@@ -1,8 +1,8 @@
 # R-Mix and RL-Mix: expeditious Random Mix-up
 
 This is the official code release for the paper ["Expeditious Saliency-based Mixup through Random
-Gradient Thresholding"](https://practical-dl.github.io/2023/long_paper/07.pdf), accepted at [2nd International Workshop on Practical
-Deep Learning in the Wild (Practical-DL)](https://practical-dl.github.io/#paper-submission) at AAAI Conference on Artificial Intelligence 2023.
+Gradient Thresholding"](https://arxiv.org/abs/2212.04875), accepted at [2nd International Workshop on Practical
+Deep Learning in the Wild (Practical-DL)](https://practical-dl.github.io/#paper) at AAAI Conference on Artificial Intelligence 2023.
 
 ![](assets/mixup%20vis%20final.png)
 
