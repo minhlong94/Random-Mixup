@@ -4,6 +4,9 @@ This is the official code release for the paper ["Expeditious Saliency-based Mix
 Gradient Thresholding"](https://arxiv.org/abs/2212.04875), accepted at [2nd International Workshop on Practical
 Deep Learning in the Wild (Practical-DL)](https://practical-dl.github.io/#paper) at AAAI Conference on Artificial Intelligence 2023.
 
+
+![](assets/Mixups.png)
+
 ![](assets/mixup%20vis%20final.png)
 
 by Minh-Long Luu, Zeyi Huang, Eric P. Xing, Yong Jae Lee, and Haohan Wang.
