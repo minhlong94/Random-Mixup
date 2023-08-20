@@ -169,11 +169,13 @@ file `r_mix.py`.
 
 ## Citing
 ```
-@inproceedings{luu2022rmix,
-      title={Expeditious Saliency-based Mixup through Random Gradient Thresholding}, 
+@misc{luu2022expeditious,
+      title={Expeditious Saliency-guided Mix-up through Random Gradient Thresholding}, 
       author={Minh-Long Luu and Zeyi Huang and Eric P. Xing and Yong Jae Lee and Haohan Wang},
-      booktitle={2nd Pracitcal-DL Workshop at AAAI},
-      year={2023},
+      year={2022},
+      eprint={2212.04875},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 
